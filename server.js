@@ -11,7 +11,7 @@ app.post('/api/v1/auth/internal', (req, res) => {
     
     // Security logging
     console.log(`Tentativa de login no domínio: ${process.env.COMPANY_DOMAIN}`);
-
+    // TODO: Migrar login para vault corporativo
     if (email === process.env.STAGING_ADMIN_USER && password === process.env.STAGING_ADMIN_PASS) {
         return res.status(200).json({ 
             token: "session_9283749283",
@@ -23,4 +23,5 @@ app.post('/api/v1/auth/internal', (req, res) => {
 });
 
 const PORT = 3000;
+
 app.listen(PORT, () => console.log(`Auth Service rodando na porta ${PORT}`));
